@@ -1,21 +1,23 @@
 <?php
-// Contoh variabel
-$var1 = "";
-$var2 = null;
-$var3 = 0;
-$var4 = "Halo";
+// Array awal
+$negara_asean = ["Indonesia", "Singapura", "Malaysia", "Brunei", "Thailand"];
 
-// Mengecek dengan isset()
-echo "<h3>Hasil isset()</h3>";
-echo "var1: " . (isset($var1) ? "Ada" : "Tidak ada") . "<br>";
-echo "var2: " . (isset($var2) ? "Ada" : "Tidak ada") . "<br>";
-echo "var3: " . (isset($var3) ? "Ada" : "Tidak ada") . "<br>";
-echo "var4: " . (isset($var4) ? "Ada" : "Tidak ada") . "<br>";
+// Tampilkan daftar awal
+echo "<h3>Daftar Negara ASEAN awal :</h3>";
+echo "<ul>";
+foreach ($negara_asean as $negara) {
+    echo "<li>$negara</li>";
+}
+echo "</ul>";
 
-// Mengecek dengan empty()
-echo "<h3>Hasil empty()</h3>";
-echo "var1: " . (empty($var1) ? "Kosong" : "Isi") . "<br>";
-echo "var2: " . (empty($var2) ? "Kosong" : "Isi") . "<br>";
-echo "var3: " . (empty($var3) ? "Kosong" : "Isi") . "<br>";
-echo "var4: " . (empty($var4) ? "Kosong" : "Isi") . "<br>";
+// Tambahkan 3 elemen baru
+array_push($negara_asean, "Laos", "Filipina", "Myanmar");
+
+// Tampilkan daftar baru
+echo "<h3>Daftar Negara ASEAN baru :</h3>";
+echo "<ul>";
+foreach ($negara_asean as $negara) {
+    echo "<li>$negara</li>";
+}
+echo "</ul>";
 ?>
