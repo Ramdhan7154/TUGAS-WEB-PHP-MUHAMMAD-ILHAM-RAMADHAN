@@ -1,48 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Modul 2 - Latihan 2c</title>
     <style>
         .kotak {
-            display: grid;
-            grid-template-columns: 50px 50px 50px;
-            grid-template-rows: 50px 50px 50px;
-            gap: 5px;
-            width: fit-content;
-            margin: 20px;
-        }
-        .kotak div {
-            border: 1px solid black;
+            width: 30px;
+            height: 30px;
             text-align: center;
-            vertical-align: middle;
-            line-height: 50px;
-            font-weight: bold;
+            line-height: 30px;
+            margin: 3px;
+            float: left;
         }
-        .kosong {
-            border: none;
+        .clear {
+            clear: both;
+        }
+        .ganjil {
+            background-color: #003;
+            color: #fff;
+        }
+        .genap {
+            background-color: #999;
         }
     </style>
 </head>
 <body>
 
 <?php
-$a = "A";
-$b = "B";
-$c = "C";
+$baris = 5;
+
+for ($i = 1; $i <= $baris; $i++) {
+    $kelas = ($i % 2 == 1) ? "ganjil" : "genap";
+    for ($j = 1; $j <= $i; $j++) {
+        echo "<div class='kotak $kelas'>$j</div>";
+    }
+    echo "<div class='clear'></div>";
+}
 ?>
-
-<div class="kotak">
-    <div><?php echo $a; ?></div>
-    <div class="kosong"></div>
-    <div class="kosong"></div>
-
-    <div><?php echo $a; ?></div>
-    <div><?php echo $b; ?></div>
-    <div class="kosong"></div>
-
-    <div><?php echo $a; ?></div>
-    <div><?php echo $b; ?></div>
-    <div><?php echo $c; ?></div>
-</div>
 
 </body>
 </html>
