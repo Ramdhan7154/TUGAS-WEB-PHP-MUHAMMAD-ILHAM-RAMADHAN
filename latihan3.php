@@ -1,42 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Modul 2 - Latihan 2c</title>
-    <style>
-        .kotak {
-            width: 30px;
-            height: 30px;
-            text-align: center;
-            line-height: 30px;
-            margin: 3px;
-            float: left;
-        }
-        .clear {
-            clear: both;
-        }
-        .ganjil {
-            background-color: #003;
-            color: #fff;
-        }
-        .genap {
-            background-color: #999;
-        }
-    </style>
-</head>
-<body>
-
 <?php
-$baris = 5;
-
-for ($i = 1; $i <= $baris; $i++) {
-    $kelas = ($i % 2 == 1) ? "ganjil" : "genap";
-    for ($j = 1; $j <= $i; $j++) {
-        echo "<div class='kotak $kelas'>$j</div>";
-    }
-    echo "<div class='clear'></div>";
+function pangkat($angka, $pangkat) {
+    return pow($angka, $pangkat);
 }
-?>
 
-</body>
-</html>
+$angka = 5;
+$pangkat = 4;
+$hasil = pangkat($angka, $pangkat);
+
+echo "$angka pangkat $pangkat = $hasil";
+?>
