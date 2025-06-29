@@ -1,19 +1,50 @@
 <?php
-// Membuat array warna
-$warna = ["hijau", "kuning", "kelabu", "merah muda"];
+// Inisialisasi variabel error dan status login
+$error = "";
+$isLoginSuccess = false;
+
+// Proses saat form disubmit
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Cek kredensial
+    if ($username === "admin" && $password === "123") {
+        $isLoginSuccess = true;
+    } else {
+        $error = "Username atau Password salah!!";
+    }
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Latihan4a</title>
+    <title>Login Admin</title>
 </head>
 <body>
-    <p>Balonku ada lima.</p>
-    <p>Rupa-rupa warnanya</p>
-    <p><?php echo "$warna[0], $warna[1], $warna[2], $warna[3]"; ?>, dan biru</p>
-    <p>Meletus balon <?php echo $warna[0]; ?> DOR!!!</p>
-    <p>Hatiku sangat kacau.</p>
+<?php if ($isLoginSuccess): ?>
+    <h2>Selamat Datang, Admin</h2>
+    <p>Ini adalah halaman admin</p>
+    <form method="post">
+        <button type="submit">Logout</button>
+    </form>
+<?php else: ?>
+    <h2>Login</h2>
+
+    <?php if ($error): ?>
+        <p style="color: red;"><?php echo $error; ?></p>
+    <?php endif; ?>
+
+    <form method="post">
+        <label>Username</label><br>
+        <input type="text" name="username" required><br><br>
+
+        <label>Password</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <button type="submit">Log In</button>
+    </form>
+<?php endif; ?>
 </body>
 </html>
